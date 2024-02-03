@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background-color: #000000;
+    overflow: hidden;
+    transition: background-color 0.5s ease;
+    animation: fadeIn 1s ease-in-out; 
+}
+
+main::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 80vw;
+    background: linear-gradient(-300deg, #000 40%, rgba(0, 0, 0, 0) 65%) no-repeat;
+    transition: width 0.5s ease;
+    animation: gradientFadeIn 1s ease-in-out; 
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gradientFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+main .personagem {
+    display: none;
+    height: 100vh;
+    animation: fadeIn 1s ease-in-out; 
+}
+
+main .personagem.selecionado {
+    display: block;
+}
+
+main .personagem .imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.conteudo {
+    position: absolute;
+    top: 0;
+    left: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 380px;
+    z-index: 1;
+    animation: fadeIn 1s ease-in-out; 
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.conteudo .nome-personagem {
+    color: #ffffff;
+    font-size: 48px;
+    font-family: "Secular One";
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.conteudo .descricao {
+    color: #ffffff;
+    font-family: "Rubik";
+    line-height: 24px;
+}
+
+.conteudo .logo {
+    background-image: url("images/logo.png");
+    background-size: cover;
+    height: 100px;
+    width: 230px;
+    margin-bottom: 15px;
+}
+
+.botoes {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 180px;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.botoes .botao {
+    border: none;
+    background: #000000;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.botoes .botao:hover {
+    transform: scale(1.1);
+}
+
+.botoes .botao img {
+    border-radius: 50%;
+}
+
+.botoes .botao.selecionado,
+.botoes .botao.selecionado:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #D9D9D9;
+}
+
+.gohan-button, .vegeta-button, .goku-button, .piccolo-button, .frieza-button{
+    width: 96px;
+    height: 86px;
+}
+
+@media (max-width: 769px) {
+    main::after {
+        background: linear-gradient(0deg, #000 20%, rgba(0, 0, 0, 0.00) 65%) no-repeat;
+        width: 100vw;
+    }
+
+    main .personagem .imagem {
+        height: 85%;
+    }
+
+    .conteudo {
+        justify-content: flex-end;
+        left: 0;
+        top: -20%;
+        max-width: 100vw;
+        padding: 30px;
+    }
+
+    .conteudo .nome-personagem {
+        font-size: 36px;
+    }
+
+    .conteudo .descricao {
+        max-width: 500px;
+    }
+
+    .botoes {
+        flex-direction: row;
+        align-items: flex-end;
+        width: 100%;
+        padding: 30px;
+    }
+
+    .botoes .botao img {
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 425px) {
+    main .personagem .imagem {
+        height: auto;
+    }
+
+    .conteudo .logo {
+        width: 170px;
+        height: 75px;
+    }
+
+    .conteudo {
+        top: -30%;
+        margin-top: -50px;
+    }
+
+    .conteudo .nome-personagem {
+        font-size: 24px;
+    }
+
+    .botoes {
+        padding: 20px;
+        top: -20%;
+       
+    }
+
+    .botoes .botao img {
+        max-width: 50px;
+    }
+
+    .logo{
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+    .gohan-button, .vegeta-button, .goku-button, .piccolo-button, .frieza-button{
+        width: 35px;
+        height: 40px;
+    }
+
+    .conteudo{
+        margin-top: 20px;
+    }
+}
